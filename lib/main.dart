@@ -59,7 +59,6 @@ class _HomeScreenState extends State<HomeScreen> with GetItStateMixin{
 
 
 class ShowData extends StatelessWidget with GetItMixin{
-  ShowData();
   @override
   Widget build(BuildContext context) {
     final data = watchX((Manager manager) => manager.loadData!);
