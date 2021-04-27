@@ -18,10 +18,35 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomeScreen(),
+      home: InitialApp(),
     );
   }
 }
+
+class InitialApp extends StatelessWidget with GetItMixin{
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: MaterialButton(
+          height: 100,
+          minWidth: 200,
+          child: Text('Get News',style: TextStyle(
+            color: Colors.black,
+            fontSize: 20,
+          ),),
+          onPressed: (){
+            get<Manager>().loadData!.execute('in');
+            Navigator.of(context).push(MaterialPageRoute(
+              builder: (_)=>HomeScreen(),
+            ));
+          }
+        ),
+      ),
+    );
+  }
+}
+
 
 class HomeScreen extends StatelessWidget with GetItMixin{
   @override
