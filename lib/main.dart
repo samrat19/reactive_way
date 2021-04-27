@@ -36,7 +36,7 @@ class InitialApp extends StatelessWidget with GetItMixin{
             fontSize: 20,
           ),),
           onPressed: (){
-            get<Manager>().loadData!.execute('in');
+            get<Manager>().loadData!.execute({'countryCode':'in','category':'sports'});
             Navigator.of(context).push(MaterialPageRoute(
               builder: (_)=>HomeScreen(),
             ));

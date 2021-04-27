@@ -5,9 +5,9 @@ import 'model.dart';
 
 class Service{
 
-  Future<List<Articles>> getData(String? countryCode) async{
+  Future<List<Articles>> getData(String? countryCode, String? category) async{
 
-    String url = 'https://newsapi.org/v2/top-headlines?country=$countryCode&category=business&apiKey=$apiKEY';
+    String url = 'https://newsapi.org/v2/top-headlines?country=$countryCode&category=$category&apiKey=$apiKEY';
 
     final response = await http.get(Uri.parse(url));
     final data  = json.decode(response.body);
