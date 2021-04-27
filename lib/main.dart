@@ -18,37 +18,25 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: InitialApp(),
+      home: HomeScreen(),
     );
   }
 }
 
-class InitialApp extends StatelessWidget with GetItMixin{
+
+class HomeScreen extends StatefulWidget with GetItStatefulWidgetMixin{
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: MaterialButton(
-          height: 100,
-          minWidth: 200,
-          child: Text('Get News',style: TextStyle(
-            color: Colors.black,
-            fontSize: 20,
-          ),),
-          onPressed: (){
-            get<Manager>().loadData!.execute({'countryCode':'in','category':'sports'});
-            Navigator.of(context).push(MaterialPageRoute(
-              builder: (_)=>HomeScreen(),
-            ));
-          }
-        ),
-      ),
-    );
-  }
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
+class _HomeScreenState extends State<HomeScreen> with GetItStateMixin{
 
-class HomeScreen extends StatelessWidget with GetItMixin{
+  @override
+  void initState() {
+    get<Manager>().loadData!.execute({'countryCode':'in','category':'sports'});
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
 
