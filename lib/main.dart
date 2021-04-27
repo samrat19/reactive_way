@@ -57,9 +57,7 @@ class HomeScreen extends StatelessWidget with GetItMixin{
     return Scaffold(
       body: Stack(
         children: [
-          //show data
           ShowData(),
-          //show loading indicator
           if(isRunning == true)
             Center(
               child: CircularProgressIndicator(),
